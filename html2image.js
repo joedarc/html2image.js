@@ -21,7 +21,6 @@ class HTML2Image {
     foreignObject.setAttribute('width', '100%');
     foreignObject.setAttribute('height', '100%');
     svg.appendChild(foreignObject);
-    console.log(svg);
     var canvas = document.createElement('canvas');
     canvas.width = this.width;
     canvas.height = this.height;
