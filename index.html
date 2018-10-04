@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html2image.js</title>
+</head>
+<body>
+  <div xmlns="http://www.w3.org/1999/xhtml" class="body" id="image-content">
+    <h1>Hello World!</h1>
+    <button id="button">Save Your Image</button>
+  </div>
+</body>
+</html>
+
+<script type="text/javascript" src="./html2image.js"></script>
+<script>
+  var button = document.getElementById('button');
+  button.addEventListener('click', function() {
+    button.style.display = 'none';
+    let htmlImage = new HTML2Image(document.getElementById('image-content'), {height: "864", width: "427", exportName: "message.png"});
+    htmlImage.toImage();
+    button.style.display = 'block';
+  });
+</script>
