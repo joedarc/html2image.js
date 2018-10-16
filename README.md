@@ -4,7 +4,7 @@ Convert any HTML you have into an image with ease!
 
 ### Example Usage
 
-Use the <x-html2image> tag and put any html you want to print to an image inside.
+Use the `<x-html2image>` tag and put any html you want to print to an image inside.
 
 ```
   <x-html2image>
