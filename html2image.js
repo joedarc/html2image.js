@@ -1,11 +1,19 @@
-class HTML2Image {
+class HTML2Image extends HTMLElement {
 
-  constructor(element, options) {
-    this.element = element.cloneNode(true);
-    let defaultBounds = element.getBoundingClientRect();
-    this.height = options.height || defaultBounds.height;
-    this.width = options.width || defaultBounds.width;
-    this.exportName = options.exportName || 'download.png';
+  constructor() {
+    super();
+    this.shadow = this.attachShadow({mode: 'open'});
+    var wrapper = document.createElement('div');
+    this.shadow.appendChild(wrapper);
+    window.onload = () => {
+      let defaultBounds = this.getBoundingClientRect();
+      this.height = this.getAttribute('height') || defaultBounds.height;
+      this.width = this.getAttribute('width') || defaultBounds.width;
+      this.exportName = this.getAttribute('exportName') || 'download.png';
+      wrapper.setAttribute('xmlns', this.getAttribute('xmlns'))
+      wrapper.setAttribute('class', this.getAttribute('class'))
+      wrapper.innerHTML = this.innerHTML;
+    };
   }
 
   toImage() {
@@ -17,7 +25,7 @@ class HTML2Image {
     svg.style.display = 'block';
     svg.style.margin = 'auto';
     var foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
-    foreignObject.appendChild(this.element);
+    foreignObject.appendChild(this.cloneNode(true));
     foreignObject.setAttribute('width', '100%');
     foreignObject.setAttribute('height', '100%');
     svg.appendChild(foreignObject);
@@ -40,4 +48,6 @@ class HTML2Image {
     };
     img.src = 'data:image/svg+xml,' + encodeURIComponent(svg.outerHTML);
   }
-}
+};
+
+customElements.define('x-html2image', HTML2Image);
