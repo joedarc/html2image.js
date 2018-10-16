@@ -1,0 +1,20 @@
+{
+  "name": "html2image.js",
+  "version": "1.0.0",
+  "description": "Render Images from HTML",
+  "main": "html2image.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joedarc/html2image.js.git"
+  },
+  "keywords": [],
+  "author": "Joe D'Arcangelo",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/joedarc/html2image.js/issues"
+  },
+  "homepage": "https://github.com/joedarc/html2image.js#readme"
+}
