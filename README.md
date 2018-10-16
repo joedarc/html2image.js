@@ -23,7 +23,7 @@ Add something that will trigger the download of your image
   <button id="button">Save Your Image</button>
 ```
 
-Lastly, add in some Javascript to call the toImage function
+Lastly, add in some Javascript to call the `toImage()` function
 
 ```
   var button = document.getElementById('button');
